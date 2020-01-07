@@ -1,0 +1,30 @@
+<html>
+    <head><title>test update</title></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <body>
+        hi there
+        <button onclick="updateCar()">go</button>
+
+        <script>
+            function updateCar(){
+                $.ajax({
+                    url: "cars",
+                    method: "PUT",
+                    data:"",
+                    dataType:"JSON",
+                    success: function(result){
+                        //console.log(result);
+                        for (car of result.cars){
+                            console.log(car);
+                        }
+                    },
+                    error: function(xhr,status, error){
+                        console.log("error "+status+" msg:"+error);
+                    }
+                })
+            }
+        </script>
+    </body>
+    </html>
+
+
